@@ -1,0 +1,67 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001e3bb876250 .scope module, "halfadder_tb" "halfadder_tb" 2 1;
+ .timescale 0 0;
+v000001e3bb82a8d0_0 .var "aa", 0 0;
+v000001e3bb82a970_0 .var "bb", 0 0;
+v000001e3bb82aa10_0 .net "cy", 0 0, L_000001e3bb842dc0;  1 drivers
+v000001e3bb82aeb0_0 .net "ss", 0 0, L_000001e3bb828b20;  1 drivers
+S_000001e3bb8763e0 .scope module, "add1" "halfadder" 2 4, 3 1 0, S_000001e3bb876250;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "c";
+L_000001e3bb828b20 .functor XOR 1, v000001e3bb82a8d0_0, v000001e3bb82a970_0, C4<0>, C4<0>;
+L_000001e3bb842dc0 .functor AND 1, v000001e3bb82a8d0_0, v000001e3bb82a970_0, C4<1>, C4<1>;
+v000001e3bb843000_0 .net "a", 0 0, v000001e3bb82a8d0_0;  1 drivers
+v000001e3bb828a80_0 .net "b", 0 0, v000001e3bb82a970_0;  1 drivers
+v000001e3bb876570_0 .net "c", 0 0, L_000001e3bb842dc0;  alias, 1 drivers
+v000001e3bb876610_0 .net "sum", 0 0, L_000001e3bb828b20;  alias, 1 drivers
+    .scope S_000001e3bb876250;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e3bb82a8d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e3bb82a970_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e3bb82a8d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001e3bb82a970_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001e3bb82a8d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e3bb82a970_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001e3bb82a8d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001e3bb82a970_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_000001e3bb876250;
+T_1 ;
+    %vpi_call 2 12 "$monitor", $time, "a=%b, b=%b,sum=%b,carry=%b", v000001e3bb82a8d0_0, v000001e3bb82a970_0, v000001e3bb82aeb0_0, v000001e3bb82aa10_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_000001e3bb876250;
+T_2 ;
+    %vpi_call 2 15 "$dumpfile", "halfadder.vcd" {0 0 0};
+    %vpi_call 2 16 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001e3bb876250 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "hatb.v";
+    "ha.v";
