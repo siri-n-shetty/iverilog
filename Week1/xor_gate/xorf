@@ -1,0 +1,67 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001f589e15a00 .scope module, "xor_gate" "xor_gate" 2 1;
+ .timescale 0 0;
+L_000001f589de2fd0 .functor XOR 1, v000001f589de31f0_0, v000001f589de2d70_0, C4<0>, C4<0>;
+v000001f589de31f0_0 .var "a", 0 0;
+v000001f589de2d70_0 .var "b", 0 0;
+v000001f589f5ed60_0 .net "y", 0 0, L_000001f589de2fd0;  1 drivers
+S_000001f589e15b90 .scope module, "xorgate" "xorgate" 3 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+o000001f589e17068 .functor BUFZ 1, C4<z>; HiZ drive
+o000001f589e17098 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001f589de3410 .functor XOR 1, o000001f589e17068, o000001f589e17098, C4<0>, C4<0>;
+v000001f589f5ee00_0 .net "a", 0 0, o000001f589e17068;  0 drivers
+v000001f589e15d20_0 .net "b", 0 0, o000001f589e17098;  0 drivers
+v000001f589e15dc0_0 .net "y", 0 0, L_000001f589de3410;  1 drivers
+    .scope S_000001f589e15a00;
+T_0 ;
+    %delay 0, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f589de31f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f589de2d70_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f589de31f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f589de2d70_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f589de31f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f589de2d70_0, 0, 1;
+    %delay 15, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f589de31f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f589de2d70_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_000001f589e15a00;
+T_1 ;
+    %vpi_call 2 16 "$monitor", $time, "a = %b, b = %b, y = %b", v000001f589de31f0_0, v000001f589de2d70_0, v000001f589f5ed60_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_000001f589e15a00;
+T_2 ;
+    %vpi_call 2 19 "$dumpfile", "xor_gate.vcd" {0 0 0};
+    %vpi_call 2 20 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001f589e15a00 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "xortb.v";
+    "xor.v";
