@@ -1,4 +1,4 @@
-# Week 1 - Problem Statements
+# Week 1: Problem Statements
 
 ### Program 1: Two-input AND Gate
 Write a Verilog program to model a two-input AND gate. Generate the VVP output and simulation waveform using GTKWave. Verify the output and waveform against the AND gate truth table.
