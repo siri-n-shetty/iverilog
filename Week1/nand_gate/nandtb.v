@@ -1,7 +1,7 @@
 module nand_gate;
     reg a, b;
     wire y;
-    nand nand_gate(y, a, b);
+    nandgate nand_gate(a, b, y);
     initial begin
         #0 a = 0;
         b = 0;

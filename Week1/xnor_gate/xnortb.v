@@ -1,7 +1,7 @@
 module xnor_gate;
     reg a, b;
     wire y;
-    xnor xnor_gate(y, a, b);
+    xnorgate xnor_gate(a, b, y);
     initial begin
         #0 a = 0;
         b = 0;
