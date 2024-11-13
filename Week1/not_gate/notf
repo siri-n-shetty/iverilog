@@ -1,44 +1,42 @@
-#! /c/Source/iverilog-install/bin/vvp
-:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
 :ivl_delay_selection "TYPICAL";
 :vpi_time_precision + 0;
-:vpi_module "C:\iverilog\lib\ivl\system.vpi";
-:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
-:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
-:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
-:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_000001e7d4fc2970 .scope module, "not_gate" "not_gate" 2 1;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x55a888bfb270 .scope module, "not_gate" "not_gate" 2 1;
  .timescale 0 0;
-L_000001e7d4fc2fd0 .functor NOT 1, v000001e7d4d570e0_0, C4<0>, C4<0>, C4<0>;
-v000001e7d4d570e0_0 .var "a", 0 0;
-v000001e7d4ff5450_0 .net "y", 0 0, L_000001e7d4fc2fd0;  1 drivers
-S_000001e7d4fc2b00 .scope module, "notgate" "notgate" 3 1;
+v0x55a888c1e670_0 .var "a", 0 0;
+v0x55a888c1e710_0 .net "y", 0 0, L_0x55a888c1e7e0;  1 drivers
+S_0x55a888c0db00 .scope module, "not_gate" "notgate" 2 4, 3 1 0, S_0x55a888bfb270;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "a";
     .port_info 1 /OUTPUT 1 "y";
-o000001e7d4ff7018 .functor BUFZ 1, C4<z>; HiZ drive
-v000001e7d4fc31f0_0 .net "a", 0 0, o000001e7d4ff7018;  0 drivers
-v000001e7d4fc2c90_0 .net "y", 0 0, L_000001e7d4fc2d30;  1 drivers
-L_000001e7d4fc2d30 .reduce/nor o000001e7d4ff7018;
-    .scope S_000001e7d4fc2970;
+v0x55a888bd67f0_0 .net "a", 0 0, v0x55a888c1e670_0;  1 drivers
+v0x55a888bd6c00_0 .net "y", 0 0, L_0x55a888c1e7e0;  alias, 1 drivers
+L_0x55a888c1e7e0 .reduce/nor v0x55a888c1e670_0;
+    .scope S_0x55a888bfb270;
 T_0 ;
     %delay 0, 0;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v000001e7d4d570e0_0, 0, 1;
+    %store/vec4 v0x55a888c1e670_0, 0, 1;
     %delay 5, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v000001e7d4d570e0_0, 0, 1;
+    %store/vec4 v0x55a888c1e670_0, 0, 1;
     %end;
     .thread T_0;
-    .scope S_000001e7d4fc2970;
+    .scope S_0x55a888bfb270;
 T_1 ;
-    %vpi_call 2 10 "$monitor", $time, "a = %b, y = %b", v000001e7d4d570e0_0, v000001e7d4ff5450_0 {0 0 0};
+    %vpi_call 2 10 "$monitor", $time, "a = %b, y = %b", v0x55a888c1e670_0, v0x55a888c1e710_0 {0 0 0};
     %end;
     .thread T_1;
-    .scope S_000001e7d4fc2970;
+    .scope S_0x55a888bfb270;
 T_2 ;
     %vpi_call 2 13 "$dumpfile", "not_gate.vcd" {0 0 0};
-    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001e7d4fc2970 {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55a888c0db00 {0 0 0};
     %end;
     .thread T_2;
 # The file index is used to find the file name in the following table.

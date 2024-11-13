@@ -1,7 +1,7 @@
 module not_gate;
     reg a;
     wire y;
-    not not_gate(y, a);
+    notgate not_gate(a, y);
     initial begin
         #0 a = 0;
         #5 a = 1;

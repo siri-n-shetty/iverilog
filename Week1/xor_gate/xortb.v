@@ -1,7 +1,7 @@
 module xor_gate;
     reg a, b;
     wire y;
-    xor xor_gate(y, a, b);
+    xorgate xor_gate(a, b, y);
     initial begin
         #0 a = 0;
         b = 0;

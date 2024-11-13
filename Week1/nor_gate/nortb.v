@@ -1,7 +1,7 @@
 module nor_gate;
     reg a, b;
     wire y;
-    nor nor_gate(y, a, b);
+    norgate nor_gate(a, b, y);
     initial begin
         #0 a = 0;
         b = 0;

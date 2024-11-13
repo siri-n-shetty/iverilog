@@ -1,64 +1,61 @@
-#! /c/Source/iverilog-install/bin/vvp
-:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
 :ivl_delay_selection "TYPICAL";
 :vpi_time_precision + 0;
-:vpi_module "C:\iverilog\lib\ivl\system.vpi";
-:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
-:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
-:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
-:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_00000253277b5b10 .scope module, "nor_gate" "nor_gate" 2 1;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x56227d62a400 .scope module, "nor_gate" "nor_gate" 2 1;
  .timescale 0 0;
-L_0000025327782fd0 .functor NOR 1, v00000253277831f0_0, v0000025327782d70_0, C4<0>, C4<0>;
-v00000253277831f0_0 .var "a", 0 0;
-v0000025327782d70_0 .var "b", 0 0;
-v000002532776ee00_0 .net "y", 0 0, L_0000025327782fd0;  1 drivers
-S_00000253277b5ca0 .scope module, "norgate" "norgate" 3 1;
+v0x56227d64ec40_0 .var "a", 0 0;
+v0x56227d64ed10_0 .var "b", 0 0;
+v0x56227d64ede0_0 .net "y", 0 0, L_0x56227d64f020;  1 drivers
+S_0x56227d63bc20 .scope module, "nor_gate" "norgate" 2 4, 3 1 0, S_0x56227d62a400;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "a";
     .port_info 1 /INPUT 1 "b";
     .port_info 2 /OUTPUT 1 "y";
-o00000253277b7098 .functor BUFZ 1, C4<z>; HiZ drive
-o00000253277b70c8 .functor BUFZ 1, C4<z>; HiZ drive
-L_0000025327783410 .functor OR 1, o00000253277b7098, o00000253277b70c8, C4<0>, C4<0>;
-v000002532776aae0_0 .net *"_ivl_0", 0 0, L_0000025327783410;  1 drivers
-v000002532776ab80_0 .net "a", 0 0, o00000253277b7098;  0 drivers
-v000002532776ac20_0 .net "b", 0 0, o00000253277b70c8;  0 drivers
-v000002532776acc0_0 .net "y", 0 0, L_000002532776ad60;  1 drivers
-L_000002532776ad60 .reduce/nor L_0000025327783410;
-    .scope S_00000253277b5b10;
+L_0x56227d64eee0 .functor OR 1, v0x56227d64ec40_0, v0x56227d64ed10_0, C4<0>, C4<0>;
+v0x56227d604c00_0 .net *"_ivl_0", 0 0, L_0x56227d64eee0;  1 drivers
+v0x56227d64e9a0_0 .net "a", 0 0, v0x56227d64ec40_0;  1 drivers
+v0x56227d64ea60_0 .net "b", 0 0, v0x56227d64ed10_0;  1 drivers
+v0x56227d64eb00_0 .net "y", 0 0, L_0x56227d64f020;  alias, 1 drivers
+L_0x56227d64f020 .reduce/nor L_0x56227d64eee0;
+    .scope S_0x56227d62a400;
 T_0 ;
     %delay 0, 0;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v00000253277831f0_0, 0, 1;
+    %store/vec4 v0x56227d64ec40_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0000025327782d70_0, 0, 1;
+    %store/vec4 v0x56227d64ed10_0, 0, 1;
     %delay 5, 0;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v00000253277831f0_0, 0, 1;
+    %store/vec4 v0x56227d64ec40_0, 0, 1;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0000025327782d70_0, 0, 1;
+    %store/vec4 v0x56227d64ed10_0, 0, 1;
     %delay 10, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v00000253277831f0_0, 0, 1;
+    %store/vec4 v0x56227d64ec40_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0000025327782d70_0, 0, 1;
+    %store/vec4 v0x56227d64ed10_0, 0, 1;
     %delay 15, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v00000253277831f0_0, 0, 1;
+    %store/vec4 v0x56227d64ec40_0, 0, 1;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0000025327782d70_0, 0, 1;
+    %store/vec4 v0x56227d64ed10_0, 0, 1;
     %end;
     .thread T_0;
-    .scope S_00000253277b5b10;
+    .scope S_0x56227d62a400;
 T_1 ;
-    %vpi_call 2 16 "$monitor", $time, "a = %b, b = %b, y = %b", v00000253277831f0_0, v0000025327782d70_0, v000002532776ee00_0 {0 0 0};
+    %vpi_call 2 16 "$monitor", $time, "a = %b, b = %b, y = %b", v0x56227d64ec40_0, v0x56227d64ed10_0, v0x56227d64ede0_0 {0 0 0};
     %end;
     .thread T_1;
-    .scope S_00000253277b5b10;
+    .scope S_0x56227d62a400;
 T_2 ;
     %vpi_call 2 19 "$dumpfile", "nor_gate.vcd" {0 0 0};
-    %vpi_call 2 20 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000253277b5b10 {0 0 0};
+    %vpi_call 2 20 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x56227d63bc20 {0 0 0};
     %end;
     .thread T_2;
 # The file index is used to find the file name in the following table.

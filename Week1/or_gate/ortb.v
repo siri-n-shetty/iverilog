@@ -1,7 +1,7 @@
 module or_gate;
     reg a, b;
     wire y;
-    or or_gate (y, a, b);
+    orgate or_gate (a, b, y);
     initial begin
         #0 a = 0;
         b = 0;

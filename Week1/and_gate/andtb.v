@@ -1,7 +1,7 @@
 module and_test;
     reg a, b;
     wire y;
-    and and_test (y, a, b);
+    andgate and_test (a, b, y);
     initial begin
       #0 a = 0;
       b = 0;
